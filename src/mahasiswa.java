@@ -17,7 +17,7 @@ public class mahasiswa {
             this.nama = nama;
         } catch (Nama e) {
             System.out.print(e.getMessage());
-            setNama(scanner.nextLine());
+            System.out.print("\nNama: ");setNama(scanner.nextLine());
         }
     }
 
@@ -31,7 +31,7 @@ public class mahasiswa {
             this.nim = nim;
         } catch (Nim e) {
             System.out.print(e.getMessage());
-            setNim(scanner.nextLine());
+            System.out.print("\nNIM: ");setNim(scanner.nextLine());
         }
     }
 
@@ -45,7 +45,7 @@ public class mahasiswa {
             this.email = email;
         } catch (Email e) {
             System.out.print(e.getMessage());
-            setEmail(scanner.nextLine());
+            System.out.print("\nEmail: ");setEmail(scanner.nextLine());
         }
     }
 
