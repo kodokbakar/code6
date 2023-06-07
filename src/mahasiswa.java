@@ -16,7 +16,7 @@ public class mahasiswa {
             cekNama(nama);
             this.nama = nama;
         } catch (Nama e) {
-            System.out.println(e.getMessage());
+            System.out.print(e.getMessage());
             setNama(scanner.nextLine());
         }
     }
@@ -30,7 +30,7 @@ public class mahasiswa {
             cekNim(nim);
             this.nim = nim;
         } catch (Nim e) {
-            System.out.println(e.getMessage());
+            System.out.print(e.getMessage());
             setNim(scanner.nextLine());
         }
     }
@@ -44,24 +44,42 @@ public class mahasiswa {
             cekEmail(email);
             this.email = email;
         } catch (Email e) {
-            System.out.println(e.getMessage());
+            System.out.print(e.getMessage());
             setEmail(scanner.nextLine());
         }
     }
 
     private void cekNim(String nim) throws Nim {
+        /* Cara Kerja Regex di CekNim
+        ^ = awal string
+        202210370311 = NIM
+        \\d{3} = 3 digit angka terakhir
+        $ = akhir string
+         */
         if (!Pattern.matches("^202210370311\\d{3}$", nim)) {
             throw new Nim("NIM tidak valid!");
         }
     }
 
     private void cekNama(String nama) throws Nama {
+        /* Cara Kerja Regex di CekNama
+        a-zA-Z = huruf kecil dan besar
+        spasi = spasi
+        */
         if (!Pattern.matches("[a-zA-Z ]+", nama)) {
             throw new Nama("Nama hanya boleh mengandung huruf dan spasi.");
         }
     }
 
     private void cekEmail(String email) throws Email {
+        /* Cara Kerja Regex di CekEmail
+        [\\w.-]+ = karakter yang diperbolehkan adalah huruf, angka, titik, dan strip
+        @ = karakter @
+        [webmail.umm] = karakter w, e, b, m, a, i, l, ., u, m, m
+        \\w+ = karakter yang diperbolehkan adalah huruf dan angka
+        \\. = karakter .
+        \\w+ = karakter yang diperbolehkan adalah huruf dan angka
+         */
         if (!Pattern.matches("[\\w.-]+@[webmail.umm]\\w+\\.\\w+", email)) {
             throw new Email("Email tidak valid!");
         }
